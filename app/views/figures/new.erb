@@ -1,5 +1,30 @@
-<form action="/landmarks" method="post">
-  <input type="text" name="landmark[name]" placeholder="Name">
-  <input type="text" name="landmark[year_completed]" placeholder="Year Completed">
-  <
-  
+<form action="/figures" method="post">
+  <input type="text" name="figure[name]" placeholder="Name">
+  <% @titles.each do |t| %>
+    <input type="checkbox" name="figure[title_ids]" value="<%= t.id %>"><%= t.name %></input>
+  <% end %>
+  <p>Create New Title</p>
+  <input type="text" name="title[name]">
+  <% @landmarks.each do |l| %>
+    <input type="checkbox" name="figure[landmark_ids]" value="<%= l.id %>"><%= t.name %></input>
+  <% end %>
+  <p>Create New Landmark</p>
+  <input type="text" name="landmark[name]">
+  <input type="submit" value="Create New Figure">
+</form>
+
+
+
+
+
+
+
+
+
+
+expect(page.body).to include('<form')
+expect(page.body).to include('figure[name]')
+expect(page.body).to include('figure[title_ids][]')
+expect(page.body).to include('figure[landmark_ids][]')
+expect(page.body).to include('landmark[name]')
+expect(page.body).to include('title[name]')
