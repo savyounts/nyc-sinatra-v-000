@@ -6,7 +6,7 @@ class FiguresController < ApplicationController
   end
 
   get '/figures/new' do
-    erb :new
+    erb :'/figures/new'
   end
 
   post '/figures' do
