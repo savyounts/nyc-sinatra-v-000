@@ -1,8 +1,8 @@
 <form action="/figures/<%=@figure.id%>" method="post">
-  <input type="text" name="figure[name]" placeholder="Name" id="figure_name"><%=@figure.name%><br>
+  <input type="text" name="figure[name]" id="figure_name" value="<%=@figure.name%>"><br>
 
   <% @titles.each do |t| %>
-    <input type="checkbox" name="figure[title_ids][]" value="<%= t.id %>" id="title_<%=t.id%>" <% 'checked' if @figure.titles.include?(t)%>><%= t.name %></input>
+    <input type="checkbox" name="figure[title_ids][]" value="<%= t.id %>" id="title_<%=t.id%>" <% 'checked' if @figure.titles.include?(t)%>><%= t.name %></input><br>
   <% end %>
   <br>
 
