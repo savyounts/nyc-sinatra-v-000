@@ -12,7 +12,7 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do
-    binding.pry
+    # binding.pry
     @figure = Figure.new(name: params[:figure][:name])
     @figure.landmark_ids = params[:figure][:landmark_ids]
     @figure.title_ids = params[:figure][:title_ids]
