@@ -1,12 +1,12 @@
 <form action="/figures" method="post">
   <input type="text" name="figure[name]" placeholder="Name">
   <% @titles.each do |t| %>
-    <input type="checkbox" name="figure[title_ids]" value="<%= t.id %>"><%= t.name %></input>
+    <input type="checkbox" name="figure[title_ids][]" value="<%= t.id %>"><%= t.name %></input>
   <% end %>
   <p>Create New Title</p>
   <input type="text" name="title[name]">
   <% @landmarks.each do |l| %>
-    <input type="checkbox" name="figure[landmark_ids]" value="<%= l.id %>"><%= t.name %></input>
+    <input type="checkbox" name="figure[landmark_ids][]" value="<%= l.id %>"><%= t.name %></input>
   <% end %>
   <p>Create New Landmark</p>
   <input type="text" name="landmark[name]">
