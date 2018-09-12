@@ -15,8 +15,7 @@ class FiguresController < ApplicationController
     # binding.pry
     @figure = Figure.create(params[:figure])
     if !params[:landmark][:name].empty?
-      @landmark = Landmark.create(name: params[:landmark][:name])
-      @figure.landmark_ids << @landmark.id
+      @figure.landmarks << Landmark.create(name: params[:landmark][:name])
     end
     if !params[:title][:name].empty?
       @figure.titles << Title.create(name: params[:title][:name])
