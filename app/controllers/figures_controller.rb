@@ -2,7 +2,7 @@ class FiguresController < ApplicationController
 
   get '/figures' do
     @figures = Figure.all
-    erb :index
+    erb :'/figures/index'
   end
 
   get '/figures/new' do
