@@ -3,13 +3,13 @@
   <br>
   <br>
   <% @titles.each do |t| %>
-    <input type="checkbox" name="figure[title_ids][]" value="<%= t.id %>" id="title_<%=t.id%>" <% 'checked' if @figure.titles.include?(t)%>><%= t.name %></input><br>
+    <input type="checkbox" name="figure[title_ids][]" value="<%= t.id %>" id="title_<%=t.id%>" <%= 'checked' if @figure.titles.include?(t)%>><%= t.name %></input><br>
   <% end %>
   <p>Create New Title</p> <input type="text" name="title[name]" id="new_title"><br>
   <br>
   <br>
   <% @landmarks.each do |l| %>
-    <input type="checkbox" name="figure[landmark_ids][]" value="<%= l.id %>" id="landmark_<%=l.id%>" <% 'checked' if @figure.landmarks.include?(l)%> ><%= l.name %></input><br>
+    <input type="checkbox" name="figure[landmark_ids][]" value="<%= l.id %>" id="landmark_<%=l.id%>" <%= 'checked' if @figure.landmarks.include?(l)%> ><%= l.name %></input><br>
   <% end %>
 
   <p>Create New Landmark</p>
