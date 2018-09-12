@@ -13,15 +13,20 @@ class FiguresController < ApplicationController
 
   post '/figures' do
     binding.pry
+    @figure = Figure.new(name: params[:figure][:name])
+    @figure.landmark_ids = params[:figure][:landmark_ids]
+    @figure.title_ids = params[:figure][:title_ids]
     if !params[:landmark][:name].empty?
       @landmark = Landmark.create(name: params[:landmark][:name])
+      @figure.landmark_ids << @landmark.id
     end
     if !params[:title][:name].empty?
       @title = Title.create(name: params[:title][:name])
+      @figure.title_ids << @title.id
     end
-    @figure = Figure.new(name: params[:figure][:name])
-    @figure.title_ids = params[:figure][:title_ids]
-    @figure.landmark_ids = params[:figure][:landmark_ids]
+
+
+
     @figure.save
 
     redirect "/figures/#{@figure.id}"
